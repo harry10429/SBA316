@@ -121,13 +121,44 @@ a7.style.marginTop = "8px";
 
 li7.appendChild(a7);
 
+//iterate over imageBox to add src image to the card box
 let imageBox = document.querySelectorAll("img");
 
 function addImageSrc() {
-  for (let i of imageBox) {
-    i.src = "05.webp";
+  for (let i = 1; i < imageBox.length; i++) {
+    imageBox[i].src = "05.webp";
   }
-  console.log(i);
 }
 
 addImageSrc();
+let displayArea = document.getElementById("displayArea");
+var p = document.createElement("p");
+displayArea.appendChild(p);
+
+const cardbox = document.getElementById("cardbox");
+
+cardbox.addEventListener("submit", (event) => {
+  event.preventDefault();
+  checkQuantitySelect();
+});
+
+function checkQuantitySelect() {
+  const CardGroup = document.getElementsByClassName("boxcheck");
+  let count = 0;
+  for (let i of CardGroup) {
+    console.log(i);
+    if (i.checked == true) {
+      count++;
+    }
+  }
+
+  displayArea.style.display = "grid";
+  displayArea.style.placeContent = "center";
+
+  p.innerHTML = "You have selected " + count + " apple";
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+  cardbox.reset();
+}
