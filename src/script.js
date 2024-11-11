@@ -105,3 +105,29 @@ image.style.marginTop = "13px";
 image.style.marginRight = "10px";
 
 nav.appendChild(image);
+
+let li7 = document.createElement("li");
+li7.classList.add("nav-item");
+nav.appendChild(li7);
+
+let a7 = document.createElement("a");
+a7.textContent = "Login";
+a7.classList.add("nav-link");
+a7.href = "#";
+a7.style.display = "block";
+a7.style.color = "white";
+a7.style.textAlign = "center";
+a7.style.marginTop = "8px";
+
+li7.appendChild(a7);
+
+let imageBox = document.querySelectorAll("img");
+
+function addImageSrc() {
+  for (let i of imageBox) {
+    i.src = "05.webp";
+  }
+  console.log(i);
+}
+
+addImageSrc();
